@@ -1,10 +1,13 @@
-FROM public.ecr.aws/lambda/python:3.12
+FROM public.ecr.aws/lambda/python:3.13
 
 # Copy function code
 COPY app.py ${LAMBDA_TASK_ROOT}
 
-# Install unzip utility
-RUN dnf install -y unzip
+# Install unzip and wget utilities
+RUN dnf install -y unzip wget
+
+# Download the OpenTelemetry Layer with AppSignals Support
+RUN wget https://github.com/aws-observability/aws-otel-python-instrumentation/releases/latest/download/layer.zip -O /tmp/layer.zip
 
 # Extract and include Lambda layer contents
 COPY layer.zip /tmp/
