@@ -19,8 +19,8 @@ This document outlines the necessary steps to download the `layer.zip` artifact 
 Create a directory for your Lambda function:
 
 ```console
-mkdir python-lambda-function && \
-cd python-lambda-function
+mkdir python-appsignals-container-lambda && \
+cd python-appsignals-container-lambda
 ```
 
 ## 2. Obtaining and Using the OpenTelemetry Layer with AppSignals Support
